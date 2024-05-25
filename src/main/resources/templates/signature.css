@@ -1,0 +1,105 @@
+.custom-form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(back.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    flex-direction: column;
+}
+
+.custom-form {
+    max-width: 750px;
+    width: 90%;
+    background: rgba(255, 255, 255, .1);
+    border: 2px solid rgba(255, 255, 255, .2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    backdrop-filter: blur(50px);
+    border-radius: 10px;
+    color: #fff;
+    padding: 40px 35px 55px;
+    text-align: center;
+}
+
+.custom-form h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+.custom-form-wrapper h1  {
+   
+    color: #009688;
+}
+.custom-input-box {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    margin-right: 180px;
+}
+
+.custom-input-field {
+    position: relative;
+    width: 100%;
+    margin: 5px 0;
+}
+
+.custom-input-field input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    outline: none;
+    font-size: 16px;
+    color: #fff;
+    border-radius: 6px;
+    padding: 15px 15px 15px 40px;
+}
+
+.custom-input-field input::placeholder {
+    color: #fff;
+}
+
+.custom-input-field i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #009688;
+}
+
+.custom-form label {
+    font-size: 14.5px;
+    margin: 10px 0 23px;
+    display: inline-block;
+}
+
+.custom-form label input {
+    accent-color: #fff;
+    margin-right: 100px;
+}
+
+.custom-submit-btn {
+    margin-top: 10px;
+    width: 150px;
+    height: 35px;
+    background: #fff;
+    outline: none;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    color: #009688;
+    font-weight: 600;
+}
+
+@media (max-width:576px) {
+    .custom-input-field {
+        width: 100%;
+        margin: 10px 0;
+    }
+}

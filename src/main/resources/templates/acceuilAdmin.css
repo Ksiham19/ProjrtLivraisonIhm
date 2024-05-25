@@ -1,0 +1,195 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    font-family: "Poppins" sans-serif;
+}
+body{
+    display: flex;
+}
+.sidebar{
+   position: sticky;
+   top: 0;
+   left: 0;
+   bottom: 0;
+   width: 110px;
+   height: 100vh;
+   padding: 0 1.7rem;
+   color: #000;
+    overflow: hidden;
+    transition: all 0.5s linear;
+    background: #009688;
+} 
+.sidebar:hover{
+    width:290px ;
+    transition: 0.5s;
+}
+.logo{
+    height: 80px;
+    padding: 16px;
+}
+.menu{
+    height: 88%;
+    position: relative;
+    list-style: none;
+    padding: 0;
+}
+.menu li{
+    padding: 1rem;
+    margin: 8px 0;
+    border-radius: 8px ;
+    transition: all 0.5s ease-in-out;
+}
+.menu li:hover , .active{
+    background: #B9C7C8;
+
+}
+.menu a {
+    color: #000;
+    font-size: 14px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+.menu a span{
+    overflow: hidden;
+}
+.menu a i{
+    font-size: 1.2rem;
+}
+.main--content{
+    position: relative;
+    background: #000;
+    width: 100%;
+    padding: 1rem ;
+}
+.header--wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background: #000;
+    border-radius: 10px;
+    padding: 10px 2rem;
+    margin-bottom: 1rem;
+}
+.header--title{
+    color: #009688;
+    font-size: 30px;
+}
+.card--container{
+    background: #000;
+    padding: 2rem;
+    border-radius: 10px;
+}
+.data--wrapper{
+    display: flex ;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.main--title{
+    color: #009688;
+    padding-bottom: 10px;
+    font-size: 15px;
+    font-size: 2px;
+}
+.data{
+     background: #000;
+     border-radius: 10px;
+     padding: 1.2rem;
+    width: 290px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.5s ease-in-out;
+}
+.data:hover{
+   transform: translateY(-5px); 
+}
+.data--header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.stagiaire {
+    display: flex;
+    flex-direction: column;
+}
+.title {
+    font-size:12px;
+    font-weight: 200;
+}
+.nbr--stagiaires{
+    font-size :24px;
+    font-family:"Courier New" , 'Courier New', Courier, monospace ;
+    font-weight: 600;
+
+}
+.icon{
+   color: #fff;
+   padding: 1rem;
+   height: 60px;
+   width: 60px;
+   text-align: center;
+   border-radius:50% ;
+   background: seagreen;
+}
+/* colors */
+.light-red{
+    background: rgb(254, 226, 254);
+}
+.light-purple{
+    background: rgb(254, 226, 254);
+}
+.light-green{
+    background: rgb(235, 254, 235);
+}
+.light-blue{
+    background: rgb(236, 236, 254);
+}
+.dark-red{
+    background: red;
+}
+.dark-purple{
+    background: purple;
+}
+.dark-green{
+    background: green;
+}
+.dark-blue{
+    background: blue;
+}
+.bk{
+    width: 100%;
+    height: 100vh;
+    background: url(backi.avif) ;
+    background-color: rgba(168, 162, 162, 0.8);
+    background-blend-mode: multiply;
+    background-position: center;
+    background-attachment: fixed;
+    justify-content: center; 
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+
+}
+.bk h1{
+    font-size: 50px;
+    margin-top: 20px;
+    color: #009688;
+}
+.bk p{
+    margin: 20px auto ;
+    font-weight: 300;
+    line-height: 25px;
+    color: #fff;
+    font-size: 30px;
+    
+}

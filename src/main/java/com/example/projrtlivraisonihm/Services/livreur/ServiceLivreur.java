@@ -33,6 +33,4 @@ public class ServiceLivreur {
     public void deleteLivreur(Long id) {
         livreurRepository.deleteById(id);
     }
-
-    // Additional business logic and method implementations can go here
 }

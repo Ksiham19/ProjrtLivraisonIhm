@@ -1,0 +1,80 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins" , sans-serif ;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(back.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+h2{
+    color: #fff;
+    font-size: 24px; /* Taille de police réduite */
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px; /* Espacement ajouté */
+}
+
+.table{
+    width: 100%; /* Largeur ajustée pour les appareils mobiles */
+    background: rgba(255, 255, 255, .1);
+    border: 2px solid rgba(255, 255, 255, .2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    backdrop-filter: blur(50px);
+    border-radius: 10px;
+    color: #fff;
+    padding: 40px 35px 55px;
+}
+
+.table th, .table td {
+    border: 2px solid rgba(255, 255, 255, .2);
+    padding: 15px 15px 15px 40px;
+}
+
+.table a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.alert{
+    font-size: 14.5px;
+    margin: 10px 0 23px;
+    display: inline-block;
+    background: #fff;
+    color: #333;
+    font-weight: 600;
+}
+
+@media (max-width:576px) {
+    .table{
+        width: 100%;
+        margin: 10px 0;
+    }
+}
+
+.btn-primary {
+    margin-top: 20px;
+    background-color: #009688;
+    border-color: #009688;
+    color: #fff;
+    font-size: 18px; /* Taille de police augmentée */
+    padding: 15px 30px; /* Rembourrage augmenté */
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Alignement ajouté */
+    justify-content: center; /* Alignement ajouté */
+}
