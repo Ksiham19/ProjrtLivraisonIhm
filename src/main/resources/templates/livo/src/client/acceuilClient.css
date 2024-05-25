@@ -1,0 +1,161 @@
+/* Styles généraux */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-image: url(backi.avif);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: rgba(168, 162, 162, 0.8);
+  background-blend-mode: multiply;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.client-wrapper {
+  display: flex;
+  height: 100vh;
+}
+
+.client-sidebar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 80px;
+  height: 100vh;
+  padding: 0 1.7rem;
+  color: #000;
+  overflow: hidden;
+  transition: all 0.5s linear;
+  background: #009688;
+}
+.client-sidebar:hover {
+  width: 290px;
+  transition: 0.5s;
+}
+
+.client-main-content {
+  flex: 1;
+  padding: 20px;
+  color: #000;
+}
+
+/* Styles du menu */
+.client-menu {
+  height: 88%;
+  position: relative;
+  list-style: none;
+  padding: 0;
+}
+.client-menu-item {
+  padding: 1rem;
+  margin: 8px 0;
+  border-radius: 8px;
+  transition: all 0.5s ease-in-out;
+}
+.client-menu-item:hover, .active {
+  background: #B9C7C8;
+}
+.client-menu-item a {
+  color: #000;
+  font-size: 14px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.client-menu-item a span {
+  display: inline;
+}
+.client-menu-item a i {
+  font-size: 1.2rem;
+}
+
+/* Styles des icônes */
+.client-menu-item a .icon {
+  margin-bottom: 5px;
+}
+
+/* Styles du header */
+.client-header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.client-header-title {
+  display: flex;
+  align-items: center;
+}
+
+.client-header-title span {
+  color: #009688;
+  margin-right: 5px;
+  font-size: 30px;
+}
+
+.client-header-title h2 {
+  margin: 0;
+  color: #009688;
+  font-size: 30px;
+}
+
+/* Styles des données */
+.client-card-container {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.client-main-title {
+  color: #009688;
+  margin-top: 0;
+}
+
+.client-data {
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.client-data-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.client-stagiaire {
+  flex: 1;
+}
+
+.client-title {
+  color: #333;
+}
+
+.client-nbr-stagiaires {
+  font-weight: bold;
+}
+
+/* Styles du message de bienvenue */
+.client-bk {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.client-bk h1 {
+  font-size: 50px;
+  margin-top: 150px;
+  color: #009688;
+}
+.client-bk p {
+  margin: 20px auto;
+  font-weight: 300;
+  line-height: 25px;
+  color: #fff;
+  font-size: 30px;
+}

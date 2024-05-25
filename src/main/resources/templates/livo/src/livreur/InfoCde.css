@@ -1,0 +1,71 @@
+/* CSS spécifique à AffectationLivreur */
+.affectation-container {
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .affectation-title {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: -10px; /* Réduire la marge inférieure pour déplacer le titre vers le haut */
+    color: #009688;
+  }
+  
+  .livreur-info {
+    color: #ffffff; /* Couleur du texte en noir */
+    margin-bottom: 10px;
+  }
+  
+  .commande-info {
+    color: #ffffff; /* Couleur du texte en noir */
+    margin-bottom: 10px;
+  }
+  
+  .affectation-button {
+    background-color: #009688;
+    border-color: #009688;
+    color: #fff;
+    font-size: 18px;
+    padding: 15px 40px; /* Ajuster le padding pour corriger la déformation */
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+  }
+  
+  .affectation-button:hover {
+    background-color: #00796b;
+    border-color: #00796b;
+  }
+  
+  .livreur-table {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    color: #fff;
+    padding: 30px;
+  }
+  
+  .commande-table {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    color: #fff;
+    padding: 30px;
+  }
+  
+  .livreur-table th,
+  .livreur-table td,
+  .commande-table th,
+  .commande-table td {
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    text-align: center;
+  }
+  
