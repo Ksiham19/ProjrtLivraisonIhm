@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta charset="UTF-8">
     <title>Acceuil Administrateur</title>
-    <link rel="stylesheet" type="text/css" href="acceuilAdmin.css">
+    <link rel="stylesheet" type="text/css" href="../css/acceuilAdmin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -19,37 +19,37 @@
             <div class="logo">
                 <ul class="menu">
                     <li class="active">
-                        <a href="acceuilAdmin.html" >
+                        <a th:href = "@{/accueilAdmin.html}" >
                             <i class="fas fa-tachometer-alt"></i>
                             <span>Statistiques</span>
                         </a>
                     </li>
                     <li>
-                        <a href="adminProfil.html">
+                        <a th:href="@{/adminProfil.html}">
                             <i class="fas fa-user"></i>
                             <span>Profie</span>
                         </a>
                     </li>
                     <li>
-                        <a href="adminLivreur.html">
+                        <a th:href="@{/adminLivreur}">
                             <i class="fa-solid fa-truck"></i>
                             <span>Livreurs</span>
                         </a>
                     </li>
                     <li>
-                        <a href="adminAgence.html">
+                        <a th:href="@{/adminAgence}">
                             <i class="fa-solid fa-building"></i>
                             <span>Agences</span>
                         </a>
                     </li>
                     <li>
-                        <a href="adminAffectation.html">
+                        <a th:href="@{/adminAffectation}">
                             <i class="fa-solid fa-arrow-right"></i>
                             <span>Affectation</span>
                         </a>
                     </li>
                     <li class="logout">
-                        <a href="home.html">
+                        <a th:href="@{/home}">
                             <i class="fas fa-sign-out-alt"></i>
                             <span>Deconnection</span>
                         </a>

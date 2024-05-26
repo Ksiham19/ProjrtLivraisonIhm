@@ -1,23 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
-*{
-    margin:0;
+
+* {
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins" , sans-serif ;
+    font-family: "Poppins", sans-serif;
 }
-body{
+
+body {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(back.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(../images/back.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
-.wrapper{
+
+.custom-form-wrapper {
     width: 750px;
     background: rgba(255, 255, 255, .1);
     border: 2px solid rgba(255, 255, 255, .2);
@@ -26,24 +29,30 @@ body{
     border-radius: 10px;
     color: #fff;
     padding: 40px 35px 55px;
+    margin: auto;
+    text-align: center; 
 }
-.wrapper h1{
+
+.custom-form-wrapper h1 {
     font-size: 36px;
     text-align: center;
     margin-bottom: 20px;
 }
-.wrapper .input-box{
+
+.custom-input-box {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
-.input-box .input-field{
+
+.custom-input-box .custom-input-field {
     position: relative;
     width: 50%;
     height: 50px;
     margin: 5px 0;
 }
-.input-box .input-field input{
+
+.custom-input-box .custom-input-field input {
     width: 100%;
     height: 100%;
     background: transparent;
@@ -54,42 +63,58 @@ body{
     border-radius: 6px;
     padding: 15px 15px 15px 40px;
 }
-.input-box .input-field input::placeholder{
+
+.custom-input-box .custom-input-field input::placeholder {
     color: #fff;
 }
-.input-box .input-field i{
+
+.custom-input-box .custom-input-field i {
     position: absolute;
     left: 15px;
     top: 50%;
-    transform: translateY(-50%) ;
+    transform: translateY(-50%);
     font-size: 20px;
     color: #009688;
 }
-.wrapper label{
-    font-size: 14.5px;
-    margin: 10px 0 23px;
-    display: inline-block;
-}
-.wrapper label input{
-    accent-color: #fff;
-    margin-right: 5px;
-}
-.wrapper .btn{
-    margin-top: 20px;
+
+.custom-input-box .custom-input-field textarea {
     width: 100%;
-    height: 45px;
+    height: 100%; 
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    outline: none;
+    font-size: 16px;
+    color: #fff;
+    border-radius: 6px;
+    padding: 15px 15px 15px 40px;
+    resize: vertical; 
+}
+
+.custom-input-box .custom-input-field textarea::placeholder {
+    color: #fff;
+}
+
+.custom-input-box .custom-input-field textarea:focus {
+    border-color: #009688; 
+}
+
+.custom-submit-btn {
+    margin-top: 20px;
+    width: 150px; 
+    height: 35px; 
     background: #fff;
     outline: none;
     border-radius: 6px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .1) ;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
     cursor: pointer;
     color: #009688;
     font-weight: 600;
+    text-align: center; 
 }
-@media (max-width:576px) {
-    .input-box .input-field{
+
+@media (max-width: 576px) {
+    .custom-input-box .custom-input-field {
         width: 100%;
         margin: 10px 0;
     }
-
 }
