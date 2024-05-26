@@ -12,6 +12,8 @@ public interface ClientRespository extends JpaRepository<client, Long>{
     // Trouver un client par son ID
     Optional<client> findById(Long idClient);
 
+    client findByEmail(String email);
+
     // Trouver tous les clients ayant un nom spécifique
     List<client> findByNom(String nom);
 

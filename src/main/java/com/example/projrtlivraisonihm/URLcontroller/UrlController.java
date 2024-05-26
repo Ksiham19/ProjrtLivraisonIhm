@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class UrlController {
 
-    @GetMapping("/acceuilAdmin")
+    @GetMapping("/index")
     public String home() {
-        return "acceuilAdmin";
+        return "index";
     }
 }

@@ -25,23 +25,31 @@
             <thead>
                 <tr>
                     <th>ID</th>
+                    <th>CIN </th>
+                    <th>adresse</th>
+                    <th>date_naissance</th>
                     <th>Nom</th>
-                    <th>Prénom</th>
-                    <th>Email</th>
-                    <th>Téléphone</th>
-                    <th>Adresse</th>
-                    <th>Action</th>
+                    <th>Prenom</th>
+                    <th>Telephone</th>
+                    <th>Ville</th>
+                    <th>Telephone</th>
+                    <th>Password</th>
                 </tr>
             </thead>
             <tbody>
                 <!-- Les données des clients seront ajoutées ici dynamiquement -->
-                <tr>
-                    <td>1</td>
-                    <td>Smith</td>
-                    <td>John</td>
-                    <td>john@example.com</td>
-                    <td>1234567890</td>
-                    <td>123 Street, City</td>
+                <tr th:each="livreur : ${listeLivreurs}">
+                    <td th:text="${livreur.id_livreur}"></td>
+                    <td th:text="${livreur.cin}"></td>
+                    <td th:text="${livreur.adresse}"></td>
+                    <td th:text="${livreur.date_naissance}"></td>
+                    <td th:text="${livreur.email}"></td>
+                    <td th:text="${livreur.nom}"></td>
+                    <td th:text="${livreur.prenom}"></td>
+                    <td th:text="${livreur.telephone}"></td>
+                    <td th:text="${livreur.ville}"></td>
+                    <td th:text="${livreur.pwd}"></td>
+
                     <td><button><span></span>Supprimer</button></td>
                 </tr>
                 <!-- Vous pouvez ajouter d'autres lignes pour plus de clients -->

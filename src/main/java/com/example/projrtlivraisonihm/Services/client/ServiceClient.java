@@ -1,6 +1,7 @@
 package com.example.projrtlivraisonihm.Services.client;
 
 import com.example.projrtlivraisonihm.Entities.client;
+import com.example.projrtlivraisonihm.Entities.livreur;
 import com.example.projrtlivraisonihm.Repesitory.ClientRespository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -67,5 +68,10 @@ public class ServiceClient {
 
     public long countClients() {
         return clientRepository.count();
+    }
+
+    public boolean authenticate(String enteredEmail, String enteredPassword) {
+        client client = clientRepository.findByEmail(enteredEmail);
+        return client != null && client.getPassword().equals(enteredPassword);
     }
 }

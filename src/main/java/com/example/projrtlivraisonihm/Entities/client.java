@@ -20,7 +20,7 @@ public class client {
 
     @Column(unique = true)
     private String email;
-
+    private String password;
     private Date dateNaissance;
 
 

@@ -33,4 +33,9 @@ public class ServiceLivreur {
     public void deleteLivreur(Long id) {
         livreurRepository.deleteById(id);
     }
+
+    public boolean authenticate(String enteredEmail, String enteredPassword) {
+        livreur livreur = livreurRepository.findByEmail(enteredEmail);
+        return livreur != null && livreur.getPwd().equals(enteredPassword);
+    }
 }

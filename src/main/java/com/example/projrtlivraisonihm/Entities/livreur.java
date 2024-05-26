@@ -19,7 +19,7 @@ public class livreur {
     private Long telephone;
     private String email;
     private Date dateNaissance;
-
+    private String pwd;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idAdmin", nullable = false)
     private admin admin;

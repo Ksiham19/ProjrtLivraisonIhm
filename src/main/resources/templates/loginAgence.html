@@ -12,7 +12,7 @@
 </head>
 <body>
 <div class="wrapper">
-    <form method="post" th:action="@{/loginLivreur/valid}" th:object="${livreur}">
+    <form method="post" th:action="@{/loginAgence}" th:object="${agence}">
         <h1>Connexion</h1>
         <!-- Email -->
         <div class="input-box">
@@ -21,7 +21,7 @@
         </div>
         <!-- Password -->
         <div class="input-box">
-            <input type="password" id="password" class="form-control" th:field="*{pwd}" required>
+            <input type="password" id="password" class="form-control" th:field="*{password}" required>
             <i class='bx bxs-lock-alt'></i>
         </div>
         <button type="submit" class="btn">Se connecter</button>

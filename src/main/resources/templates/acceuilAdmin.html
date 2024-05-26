@@ -19,19 +19,19 @@
             <div class="logo">
                 <ul class="menu">
                     <li class="active">
-                        <a th:href = "@{/accueilAdmin.html}" >
+                        <a th:href = "@{/accueilAdmin}" >
                             <i class="fas fa-tachometer-alt"></i>
                             <span>Statistiques</span>
                         </a>
                     </li>
                     <li>
-                        <a th:href="@{/adminProfil.html}">
+                        <a th:href="@{/adminProfil}">
                             <i class="fas fa-user"></i>
-                            <span>Profie</span>
+                            <span>Profil</span>
                         </a>
                     </li>
                     <li>
-                        <a th:href="@{/adminLivreur}">
+                        <a th:href="@{/Livreurs}">
                             <i class="fa-solid fa-truck"></i>
                             <span>Livreurs</span>
                         </a>
@@ -73,7 +73,7 @@
                                <span class="title">
                                 Nombre commandes
                                </span> 
-                               <span class="nbr--stagiaires">35</span> 
+                               <span class="nbr--stagiaires" th:text="${nombreCommandes}"></span>
                             </div>
                             <i class="fa-solid fa-arrow-up-1-9 icon"></i>
                         </div>
@@ -85,7 +85,7 @@
                                <span class="title">
                                 Nombre Agences
                                </span> 
-                               <span class="nbr--stagiaires">12</span> 
+                               <span class="nbr--stagiaires" th:text="${nombreAgences}"></span>
                             </div>
                             <i class="fa-solid fa-chart-simple icon dark-blue"></i>
                         </div>
@@ -97,7 +97,7 @@
                                <span class="title">
                                 Nombre Clients
                                </span> 
-                               <span class="nbr--stagiaires">17</span> 
+                               <span class="nbr--stagiaires" th:text="${nombreClients}">17</span>
                             </div>
                             <i class="fa-solid fa-laptop-file icon dark-purple"></i>
                         </div>

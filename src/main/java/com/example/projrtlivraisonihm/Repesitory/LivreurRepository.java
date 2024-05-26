@@ -13,6 +13,6 @@ public interface LivreurRepository extends JpaRepository<livreur, Long> {
     List<livreur> findByVille(String ville);
     List<livreur> findByCin(String cin);
     List<livreur> findByAdresse(String adresse);
-    List<livreur> findByEmail(String email);
+    livreur findByEmail(String email);
     List<livreur> findByDateNaissance(Date dateNaissance);
 }
