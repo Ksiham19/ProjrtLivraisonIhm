@@ -2,6 +2,7 @@ package com.example.projrtlivraisonihm.Entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.*;
 
@@ -18,6 +19,8 @@ public class livreur {
     private String adresse;
     private Long telephone;
     private String email;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateNaissance;
     private String pwd;
     @ManyToOne(fetch = FetchType.LAZY)

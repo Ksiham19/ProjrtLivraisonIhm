@@ -14,42 +14,43 @@
 <body>
 <div class="wrapper">
 <h1>Ajouter Nouvelle Agence</h1>
-<form>
-    <!-- ID -->
-    <div class="input-box">
-     <div class="input-field">
-       <input type="text" id="id" placeholder="ID">
-       <i class='bx bx-id-card'></i>
-     </div>  
-    </div>
+<form th:action="@{/loginAdmin/addAgence}" method="POST" th:object="${agence}">
     <!-- Nom --> 
     <div class="input-box">
     <div class="input-field">
-    <input type="text" id="nom" placeholder="Nom">
+    <input type="text" id="nom" placeholder="Nom" th:field="*{nom}" required>
     <i class='bx bxs-user'></i>
     </div>  
     </div>
      <!-- Email -->
      <div class="input-box">
         <div class="input-field">
-        <input type="email" id="email" placeholder="Email" ><br>
+        <input type="email" id="email" placeholder="Email" th:field="*{email}" required ><br>
         <i class='bx bxs-envelope'></i>
         </div>  
         </div>
     <!-- Adresse -->
     <div class="input-box">
     <div class="input-field">
-    <input type="text" id="adresse" placeholder="Adresse"><br>
+    <input type="text" id="adresse" placeholder="Adresse" th:field="*{adresse}" required><br>
     <i class='bx bxs-building-house'></i>
     </div>  
     </div>
     <!-- Téléphone -->
     <div class="input-box">
     <div class="input-field">
-    <input type="text" id="telephone" placeholder="Telephone"><br>
+    <input type="text" id="telephone" placeholder="Telephone" th:field="*{telephone}" required><br>
     <i class='bx bxs-phone'></i>
     </div>  
     </div>
+    <!-- Téléphone -->
+    <div class="input-box">
+        <div class="input-field">
+            <input type="passwordas" id="password" placeholder="Telephone" th:field="*{password}" required><br>
+            <i class='bx bxs-phone'></i>
+        </div>
+    </div>
+    <input type="hidden" th:field="*{admin.IdAdmin}" value="1"/>
     <button type="submit" class="btn">Ajouter</button>
 </form>
 </div>
