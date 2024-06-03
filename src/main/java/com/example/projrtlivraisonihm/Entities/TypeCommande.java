@@ -1,5 +1,5 @@
 package com.example.projrtlivraisonihm.Entities;
 
 public enum TypeCommande {
-    urgentes,recurrentes,en_vrac,standard;
+    urgentes, RECURRENTES, récurrentes, en_vrac, standard;
 }

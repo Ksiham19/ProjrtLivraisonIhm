@@ -14,7 +14,7 @@ public class commande {
     private Date dateMin;
     private Date dateMax;
     private boolean affecte;
-
+    private String etat;
     @Enumerated(value = EnumType.STRING)
     private TypeCommande type;
     private boolean accomplie;

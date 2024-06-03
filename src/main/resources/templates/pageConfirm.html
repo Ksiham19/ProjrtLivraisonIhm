@@ -13,7 +13,7 @@
 <body>
 <div class="container">
     <div class="header">
-        <h1>Vos Commandes Non confirmées</h1>
+        <h1>Vos Commandes non confirmées</h1>
         <div class="search-bar">
 
         </div>
@@ -29,15 +29,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="commande : ${listeCommandes}">
-            <td th:text="${commande.idCommande}"></td>
-            <td th:text="${commande.nom}"></td>
-            <td th:text="${commande.dateMin}"></td>
-            <td th:text="${commande.dateMax}"></td>
-            <td>
-                <a th:href="@{/loginClient/confirmerboutton}">Confirmer</a>
-            </td>
-        </tr>
+
         </tbody>
     </table>
 </div>

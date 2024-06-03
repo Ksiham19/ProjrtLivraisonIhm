@@ -1,22 +1,20 @@
 package com.example.projrtlivraisonihm.URLcontroller;
 
-import com.example.projrtlivraisonihm.Entities.admin;
-import com.example.projrtlivraisonihm.Entities.agence;
-import com.example.projrtlivraisonihm.Entities.livreur;
+import com.example.projrtlivraisonihm.Entities.*;
 import com.example.projrtlivraisonihm.Repesitory.AdminRepository;
 import com.example.projrtlivraisonihm.Services.admin.ServiceAdmin;
 import com.example.projrtlivraisonihm.Services.agence.ServiceAgence;
 import com.example.projrtlivraisonihm.Services.client.ServiceClient;
 import com.example.projrtlivraisonihm.Services.commande.ServiceCommande;
 import com.example.projrtlivraisonihm.Services.livreur.ServiceLivreur;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
+import org.slf4j.Logger;
 
 @Controller
 @RequestMapping("/loginAdmin")
@@ -28,6 +26,7 @@ public class LoginControllerAdmin {
     private final ServiceAgence serviceAgence;
     private final ServiceClient serviceClient;
     private final ServiceLivreur servicelivreur;
+    private static final Logger logger = LoggerFactory.getLogger(LoginControllerAdmin.class);
 
     public LoginControllerAdmin(ServiceAdmin serviceadmin, AdminRepository adminRepository, ServiceClient sericeClient, ServiceCommande serviceCommande, ServiceAgence serviceAgence, ServiceClient serviceClient, ServiceLivreur servicelivreur) {
         this.serviceadmin = serviceadmin;
@@ -78,7 +77,6 @@ public class LoginControllerAdmin {
         return "adminAgence";
     }
 
-
     @GetMapping("/adminProfil")
     public String showProfilAdmin(Model model) {
         List<admin> admin = serviceadmin.findAllAdmins();
@@ -94,11 +92,8 @@ public class LoginControllerAdmin {
 
     @PostMapping("/add")
     public String ajouternouveauLivreur(@ModelAttribute("livreur") livreur livreur, Model model) {
-        // Fetch admin from the database
         admin admin = adminRepository.findById(1L).orElseThrow(() -> new RuntimeException("Admin not found"));
         livreur.setAdmin(admin);
-
-        // Save the livreur object to the database
         servicelivreur.saveLivreur(livreur);
         model.addAttribute("message", "Un nouveau livreur ajouté");
         return "redirect:/loginAdmin/livreurs";
@@ -112,11 +107,8 @@ public class LoginControllerAdmin {
 
     @PostMapping("/addAgence")
     public String ajouternouveauLivreur(@ModelAttribute("agence") agence agence, Model model) {
-        // Fetch admin from the database
         admin admin = adminRepository.findById(1L).orElseThrow(() -> new RuntimeException("Admin not found"));
         agence.setAdmin(admin);
-
-        // Save the livreur object to the database
         serviceAgence.saveAgence(agence);
         model.addAttribute("message", "Une nouvelle agence ajoutée");
         return "redirect:/loginAdmin/agences";
@@ -127,10 +119,65 @@ public class LoginControllerAdmin {
         return "redirect:/loginAdmin";
     }
 
-
-    @GetMapping("/supprimer")
-    public String supprimerLivreur(Model model) {
-        return "redirect:/loginAdmin";
+    @GetMapping("/supprimer/{id}")
+    public String supprimerLivreur(@PathVariable Long id) {
+        servicelivreur.deleteLivreur(id);
+        return "redirect:/loginAdmin/livreurs";
     }
+
+    @GetMapping("/supprimerAgence/{id}")
+    public String supprimerAgence(@PathVariable Long id) {
+        serviceAgence.deleteAgence(id);
+        return "redirect:/loginAdmin/agences";
     }
 
+    @GetMapping("/Affectation")
+    public String pageAffectation(Model model) {
+        List<livreur> listeLivreurs = servicelivreur.findAllLivreurs();
+        model.addAttribute("listeLivreurs", listeLivreurs);
+        List<commande> listeComandes = serviceCommande.trouverCommandesParAffecte(false);
+        model.addAttribute("listeComandes", listeComandes);
+        return "adminAffectation.html";
+    }
+
+    @GetMapping("/Comandeseffectues")
+    public String afficherLesCommandesRealise(Model model) {
+        List<commande> listeComandes = serviceCommande.trouverCommandesParAffecte(true);
+        model.addAttribute("listeComandes", listeComandes);
+        return "CommandeRealises.html";
+    }
+
+    @GetMapping("/detailsCommande/{id}")
+    public String afficherDetailsCommande(@PathVariable Long id, Model model) {
+        commande commande = serviceCommande.trouverCommandeParId(id);
+        livreur livreur = commande.getLivreur();
+        client client = commande.getClient();
+        agence agence = commande.getAgence();
+        model.addAttribute("commande", commande);
+        model.addAttribute("livreur", livreur);
+        model.addAttribute("client", client);
+        model.addAttribute("agence", agence);
+        return "detailsCommande";
+    }
+
+
+    @PostMapping("/affecterCommande")
+    public String affecterCommande(
+            @RequestParam("idCommande") Long idCommande,
+            @RequestParam("idLivreur") Long idLivreur,
+            Model model
+    ) {
+        // Affecter la commande au livreur
+        serviceCommande.affecterCommandeALivreur(idCommande, idLivreur);
+
+        // Modifier la valeur de l'attribut affecte de la commande en 1
+        serviceCommande.modifierAffecteCommande(idCommande);
+
+        // Mettre à jour la liste des commandes non encore affectées
+        List<commande> listeCommandesNonAffectees = serviceCommande.trouverCommandesParAffecte(false);
+        model.addAttribute("listeComandes", listeCommandesNonAffectees);
+
+        return "redirect:/loginAdmin/Affectation";
+    }
+
+}

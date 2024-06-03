@@ -10,6 +10,10 @@ import java.util.*;
 public interface CommandeRepository extends JpaRepository<commande, Long> {
     // Trouver une commande par son ID
     Optional<commande> findById(Long idCommande);
+    /*
+    List<commande> findByAgenceId(Long agenceId);
+
+     */
 
     // Trouver toutes les commandes ayant un nom spécifique
     List<commande> findByNom(String nom);

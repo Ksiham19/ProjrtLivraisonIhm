@@ -47,7 +47,9 @@
             <td th:text="${livreur.telephone}"></td>
             <td th:text="${livreur.ville}"></td>
             <td th:text="${livreur.pwd}"></td>
-            <td><button ><a href="/loginAdmin/supprimer">Supprimer</a></button></td>
+            <td>
+                <a th:href="@{/loginAdmin/supprimer/{id}(id=${livreur.idLivreur})}">Supprimer</a>
+            </td>
         </tr>
         </tbody>
     </table>

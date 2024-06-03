@@ -15,31 +15,31 @@
 
 </head>
 <body>
-    <div class="wrapper profil-admin">
-        <form action="">
-            <h1 class="hh">Gestion de profil</h1>
-            <div class="input-box">
-                <div class="input-field">
-                    <input type="number" placeholder="Identifiant" disabled onChange="handleInputChange" />
-                    <i class='bx bx-id-card'></i>
-                </div>
+<div class="wrapper profil-admin">
+    <form action="" th:each="livreur : ${livreur}">
+        <h1 class="hh">Gestion de profil</h1>
+        <div class="input-box">
+            <div class="input-field">
+                <input type="number" th:value="${livreur.idLivreur}" placeholder="Identifiant" disabled onChange="handleInputChange" />
+                <i class='bx bx-id-card'></i>
             </div>
-            <div class="input-box">
-                <div class="input-field">
-                    <input type="text" placeholder="Nom" disabled onChange="handleInputChange" />
-                    <i class='bx bxs-user'></i>
-                </div>
-                <button type="button" onclick="handleEditClick"><span></span>modifier</button>
+        </div>
+        <div class="input-box">
+            <div class="input-field">
+                <input type="text" th:value="${livreur.nom}" placeholder="Nom" disabled onChange="handleInputChange" />
+                <i class='bx bxs-user'></i>
             </div>
-            <div class="input-box">
-                <div class="input-field">
-                    <input type="text" placeholder="Prenom" disabled onChange="handleInputChange" />
-                    <i class='bx bxs-user'></i>
-                </div>
-                <button type="button" onclick="handleEditClick"><span></span>modifier</button>
+            <button type="button" onclick="handleEditClick"><span></span>modifier</button>
+        </div>
+        <div class="input-box">
+            <div class="input-field">
+                <input type="text" th:value="${livreur.prenom}" placeholder="Prenom" disabled onChange="handleInputChange" />
+                <i class='bx bxs-user'></i>
             </div>
-            <button type="submit" class="btn">Confirmer</button>
-        </form>
-    </div>
+            <button type="button" onclick="handleEditClick"><span></span>modifier</button>
+        </div>
+        <button type="submit" class="btn">Confirmer</button>
+    </form>
+</div>
 </body>
 </html>

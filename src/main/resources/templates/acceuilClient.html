@@ -18,26 +18,26 @@
             <div class="logo">
                 <ul class="menu">
                     <li>
-                        <a href="profilClient.html">
+                        <a th:href="@{/loginClient/profil}">
                             <i class="fas fa-user"></i>
                             <span>Profile</span>
                         </a>
                     </li>
                     <li>
-                        <a href="Confirm.html">
+                        <a th:href="@{/loginClient/confirm}">
                             <i class="fa-solid fa-arrow-right"></i>
                             <span>Confirmation de reception</span>
                         </a>
                     </li>
                     <li>
-                        <a href="SuiviCde.html">
+                        <a th:href="@{/loginClient/suivi}">
                             <i class="fa-solid fa-timeline"></i>
                             <span>Suivi de commandes</span>
                         </a>
                     </li>
 
                     <li class="logout">
-                        <a href="home.html">
+                        <a th:href="@{/loginClient/logout}">
                             <i class="fas fa-sign-out-alt"></i>
                             <span>Deconnection</span>
                         </a>

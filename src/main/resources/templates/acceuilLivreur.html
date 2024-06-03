@@ -15,55 +15,55 @@
 
 </head>
 <body>
-    <div class="wrapper">
-        <div class="sidebar">
-            <div class="logo">
-                <ul class="menu">
-                    <li>
-                        <a href="profilLivreur.html">
-                            <i class="fas fa-user"></i>
-                            <span>Profil</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="EtatCde.html">
-                            <i class="fas fa-check"></i>
-                            <span>Etat de la commande</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="contact.html">
-                            <i class="fas fa-address-book"></i>
-                            <span>Contact Client</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="InfoCde.html">
-                            <i class="fas fa-arrow-right"></i>
-                            <span>Demandes</span>
-                        </a>
-                    </li>
-                    <li class="logout">
-                        <a href="#">
-                            <i class="fas fa-sign-out-alt"></i>
-                            <span>Déconnexion</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="main-content">
-            <div class="header-wrapper">
-                <div class="header-title">
-                    <span>Page</span>
-                    <h2>Livreur</h2>
-                </div>
-            </div>
-            <div class="bk">
-                <h1>Bienvenue dans l'espace Livreur</h1>
-                <p>Ici vous pouvez visionner les demandes, les traiter et aussi contacter vos clients</p>
-            </div>
+<div class="wrapper">
+    <div class="sidebar">
+        <div class="logo">
+            <ul class="menu">
+                <li>
+                    <a th:href="@{/loginLivreur/livreurProfil}">
+                        <i class="fas fa-user"></i>
+                        <span>Profil</span>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/loginLivreur/commandes}">
+                        <i class="fas fa-check"></i>
+                        <span>Etat de la commande</span>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/loginClient/clients}">
+                        <i class="fas fa-address-book"></i>
+                        <span>Contact Client</span>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/loginLivreur/demandes}">
+                        <i class="fas fa-arrow-right"></i>
+                        <span>Demandes</span>
+                    </a>
+                </li>
+                <li class="logout">
+                    <a th:href="@{/loginLivreur/home}">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Déconnexion</span>
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
+    <div class="main-content">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <span>Page</span>
+                <h2>Livreur</h2>
+            </div>
+        </div>
+        <div class="bk">
+            <h1>Bienvenue dans l'espace Livreur</h1>
+            <p>Ici vous pouvez visionner les demandes, les traiter et aussi contacter vos clients</p>
+        </div>
+    </div>
+</div>
 </body>
 </html>

@@ -1,7 +1,12 @@
 package com.example.projrtlivraisonihm.Services.agence;
 
 import com.example.projrtlivraisonihm.Entities.agence;
+import com.example.projrtlivraisonihm.Entities.client;
+import com.example.projrtlivraisonihm.Entities.commande;
+import com.example.projrtlivraisonihm.Repesitory.AdminRepository;
 import com.example.projrtlivraisonihm.Repesitory.AgenceRepository;
+import com.example.projrtlivraisonihm.Repesitory.ClientRespository;
+import com.example.projrtlivraisonihm.Repesitory.CommandeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,11 +16,17 @@ import java.util.Optional;
 public class ServiceAgence {
 
     private final AgenceRepository agenceRepository;
+    private final ClientRespository clientRepository;
+    private final AdminRepository adminRepository;
+    private final CommandeRepository commandeRepository;
 
     @Autowired
-    public ServiceAgence(AgenceRepository agenceRepository) {
+    public ServiceAgence(AgenceRepository agenceRepository, ClientRespository clientRepository, AdminRepository adminRepository, CommandeRepository commandeRepository) {
         this.agenceRepository = agenceRepository;
 
+        this.clientRepository = clientRepository;
+        this.adminRepository = adminRepository;
+        this.commandeRepository = commandeRepository;
     }
 
     public List<agence> findAllAgences() {
@@ -76,4 +87,17 @@ public class ServiceAgence {
         return agenceRepository.count();
     }
 
+    public boolean authenticate(String enteredEmail, String enteredPassword) {
+        Optional<agence> agence = agenceRepository.findByEmail(enteredEmail);
+        return agence.isPresent() && agence.get().getPassword().equals(enteredPassword);
+    }
+
+    public List<client> findClientsByAgenceId(Long idAgence) {
+        return clientRepository.findByAgenceIdAgence(idAgence);
+    }
+    /*
+    public List<commande> findCommandeByAgenceId(Long idAgence) {
+        return commandeRepository.findByAgenceId(idAgence);
+    }
+     */
 }

@@ -25,9 +25,9 @@ public class AgenceController {
         return ResponseEntity.ok(serviceAgence.findAllAgences());
     }
 
-    /*@GetMapping("/{id}")
-    public ResponseEntity<agence> getAgenceById(@PathVariable Long id) {
-        return serviceAgence.findAgenceById(id)
+    @GetMapping("/{idCommande}")
+    public ResponseEntity<agence> getAgenceById(@PathVariable Long idCommande) {
+        return serviceAgence.findAgenceById(idCommande)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
@@ -37,14 +37,14 @@ public class AgenceController {
         return new ResponseEntity<>(serviceAgence.saveAgence(Agence), HttpStatus.CREATED);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<agence> updateAgence(@PathVariable Long id, @RequestBody agence newAgence) {
-        return ResponseEntity.ok(serviceAgence.updateAgence(id, newAgence));
+    @PutMapping("/{idCommande}")
+    public ResponseEntity<agence> updateAgence(@PathVariable Long idCommande, @RequestBody agence newAgence) {
+        return ResponseEntity.ok(serviceAgence.updateAgence(idCommande, newAgence));
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteAgence(@PathVariable Long id) {
-        serviceAgence.deleteAgence(id);
+    @DeleteMapping("/{idCommande}")
+    public ResponseEntity<Void> deleteAgence(@PathVariable Long idCommande) {
+        serviceAgence.deleteAgence(idCommande);
         return ResponseEntity.ok().build();
     }
 
@@ -67,5 +67,5 @@ public class AgenceController {
     @GetMapping("/count")
     public ResponseEntity<Long> countAgences() {
         return ResponseEntity.ok(serviceAgence.countAgence());
-    }*/
+    }
 }

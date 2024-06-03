@@ -1,5 +1,6 @@
 package com.example.projrtlivraisonihm.Repesitory;
 import com.example.projrtlivraisonihm.Entities.client;
+import com.example.projrtlivraisonihm.Entities.commande;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -11,6 +12,10 @@ import java.util.Optional;
 public interface ClientRespository extends JpaRepository<client, Long>{
     // Trouver un client par son ID
     Optional<client> findById(Long idClient);
+
+
+
+    List<client> findByAgenceIdAgence(Long idAgence);
 
     client findByEmail(String email);
 

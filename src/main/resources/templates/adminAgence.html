@@ -41,7 +41,9 @@
             <td th:text="${agence.telephone}"></td>
             <td th:text="${agence.email}"></td>
             <td th:text="${agence.password}"></td>
-            <td><button><span></span>Supprimer</button></td>
+            <td>
+                <a th:href="@{/loginAdmin/supprimerAgence/{id}(id=${agence.idAgence})}">Supprimer</a>
+            </td>
         </tr>
         <!-- Vous pouvez ajouter d'autres lignes pour plus de clients -->
         </tbody>
@@ -49,4 +51,3 @@
 </div>
 </body>
 </html>
-s

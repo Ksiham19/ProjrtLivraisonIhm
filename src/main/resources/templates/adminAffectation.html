@@ -4,111 +4,111 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <meta charset="UTF-8">
-    <title>Aaffecter commande au livreur</title>
+    <title>Affecter commande au livreur</title>
     <link rel="stylesheet" type="text/css" href="../css/adminAffectation.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-</head>
     <style>
-        /* Styles pour le contenu */
         body {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            background-color: #f8f9fa; /* Couleur de fond */
+            background-color: #f8f9fa;
         }
         h2 {
             margin-top: 20px;
         }
         .transparent-table {
-            background-color: rgba(0, 0, 0, 0.1); /* Couleur de fond transparente */
-            color: white; /* Couleur du texte */
+            background-color: rgba(0, 0, 0, 0.1);
+            color: white;
         }
-        /* Ajout de bordures et marges entre les tableaux */
         .table-container {
-            border: 1px solid rgba(255, 255, 255, 0.2); /* Bordure */
-            border-radius: 8px; /* Coins arrondis */
-            margin-bottom: 20px; /* Marge entre les tableaux */
-            overflow: hidden; /* Empêcher le débordement */
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .table-container table {
+            width: 100%;
+            table-layout: fixed;
+        }
+        .table-container th,
+        .table-container td {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
     </style>
 </head>
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 text-center mt-4">
-                <h2>Affecter une commande au livreur</h2>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 text-center mt-4">
+            <h2>Affecter une commande au livreur</h2>
+        </div>
+    </div>
+    <!-- Formulaire pour affecter une commande à un livreur -->
+    <form action="/loginAdmin/affecterCommande" method="post">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mt-4">
+                    <h2>Affecter Commande à un Livreur</h2>
+                </div>
+                <!-- Tableau des livreurs -->
+                <div class="col-md-6 table-container">
+                    <table class="table transparent-table">
+                        <thead>
+                        <tr>
+                            <th>CIN</th>
+                            <th>Nom</th>
+                            <th>Ville</th>
+                            <th>Choisir</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <!-- Boucle pour afficher les livreurs -->
+                        <tr th:each="livreur : ${listeLivreurs}">
+                            <td th:text="${livreur.cin}"></td>
+                            <td th:text="${livreur.nom}"></td>
+                            <td th:text="${livreur.ville}"></td>
+                            <td>
+                                <input type="radio" name="idLivreur" th:value="${livreur.idLivreur}">
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Tableau des commandes -->
+                <div class="col-md-6 table-container">
+                    <table class="table transparent-table">
+                        <thead>
+                        <tr>
+                            <th>Nom</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <!-- Boucle pour afficher les commandes -->
+                        <tr th:each="commande : ${listeComandes}">
+                            <td th:text="${commande.nom}"></td>
+                            <td>
+                                <input type="radio" name="idCommande" th:value="${commande.idCommande}">
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- Bouton pour soumettre le formulaire -->
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <a th:href="@{/loginAdmin/Affectation}"><button class="btn btn-primary mt-3" type="button">Affecter</button></a>
+                </div>
             </div>
         </div>
-        <form>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 table-container">
-                        <h2>Informations sur les livreurs</h2>
-                        <table class="table transparent-table">
-                            <!-- Tableau pour clients -->
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Nom</th>
-                                    <th>Prénom</th>
-                                    <th>Email</th>
-                                    <th>Téléphone</th>
-                                    <th>Adresse</th>
-                                    <th>Sélectionner</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- Boucle pour afficher les clients -->
-                                <tr>
-                                    <td>1</td>
-                                    <td >Smith</td>
-                                    <td >John</td>
-                                    <td>john@gmail.com</td>
-                                    <td>123456</td>
-                                    <td>123 Street, City</td>
-                                    <td>
-                                        <input type="radio">
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="col-md-6 table-container">
-                        <h2>Informations sur les Commandes</h2>
-                        <table class="table transparent-table">
-                            <!-- Tableau pour les commandes -->
-                            <thead>
-                                <tr>
-                                    <th>Numero</th>
-                                    <th>Nom</th>
-                                    <th>Sélectionner</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- Boucle pour afficher les stages -->
-                                <tr>
-                                    <td >001</td>
-                                    <td >commande1</td>
-                                    <td>
-                                        <input type="radio">
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <button class="btn btn-primary mt-3" type="submit">Affecter</button>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
+    </form>
+</div>
 </body>
 </html>

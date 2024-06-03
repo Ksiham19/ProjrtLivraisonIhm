@@ -31,6 +31,9 @@ public class ServiceCommande {
     public void deleteCommande(Long idCommande) {
         commandeRepository.deleteById(idCommande);
     }
+    public List<commande> findAllCommandes() {
+        return commandeRepository.findAll();
+    }
 
     public commande updateCommande(Long idCommande, commande newCommande) {
         return commandeRepository.findById(idCommande)
@@ -40,7 +43,6 @@ public class ServiceCommande {
                     existingCommande.setDateMax(newCommande.getDateMax());
                     existingCommande.setAffecte(newCommande.isAffecte());
                     existingCommande.setType(newCommande.getType());
-                    existingCommande.setAccomplie(newCommande.isAccomplie());
 
                     // Mise à jour des associations
                     if (newCommande.getAdmin() != null) {
@@ -132,6 +134,18 @@ public class ServiceCommande {
 
     public long countCommande(){
         return commandeRepository.count();
+    }
+    @Transactional
+    public void modifierAffecteCommande(Long idCommande) {
+        Optional<commande> commandeOpt = commandeRepository.findById(idCommande);
+
+        if (commandeOpt.isPresent()) {
+            commande cmd = commandeOpt.get();
+            cmd.setAffecte(true); // Modifier la valeur de l'attribut affecte de la commande en 1
+            commandeRepository.save(cmd); // Enregistrer la commande mise à jour dans la base de données
+        } else {
+            throw new RuntimeException("Commande introuvable");
+        }
     }
 
 
